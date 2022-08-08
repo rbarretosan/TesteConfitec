@@ -10,7 +10,6 @@ using TesteConfitec.Application.Contratos;
 using TesteConfitec.Persistence;
 using TesteConfitec.Persistence.Contextos;
 using TesteConfitec.Persistence.Contratos;
-using AutoMapper;
 using System;
 using Microsoft.Extensions.FileProviders;
 using System.IO;

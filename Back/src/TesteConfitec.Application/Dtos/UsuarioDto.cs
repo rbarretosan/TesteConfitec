@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using TesteConfitec.Application.Dtos.Enum;
 
 namespace TesteConfitec.Application.Dtos
 {

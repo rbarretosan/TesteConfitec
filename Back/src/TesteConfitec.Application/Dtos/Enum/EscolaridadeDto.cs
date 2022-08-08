@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace TesteConfitec.Application.Dtos
+namespace TesteConfitec.Application.Dtos.Enum
 {
     public enum EscolaridadeDto
     {

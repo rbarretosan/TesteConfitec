@@ -1,4 +1,3 @@
-using System;
 using AutoMapper;
 using TesteConfitec.Application.Dtos;
 using TesteConfitec.Domain;
