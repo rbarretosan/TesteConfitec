@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TesteConfitec.Domain
+namespace TesteConfitec.Domain.Enum
 {
     public enum Escolaridade
     {

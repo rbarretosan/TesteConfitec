@@ -7,10 +7,10 @@ using TesteConfitec.Persistence.Contratos;
 
 namespace TesteConfitec.Persistence
 {
-    public class HistoricoEscolarPersist : IHistoricoEscolarPersist
+    public class HistoricoEscolarPersist : GeralPersist, IHistoricoEscolarPersist
     {
         private readonly TesteConfitecContext _context;
-        public HistoricoEscolarPersist(TesteConfitecContext context)
+        public HistoricoEscolarPersist(TesteConfitecContext context): base(context)
         {
             _context = context;
         }

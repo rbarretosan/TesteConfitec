@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TesteConfitec.Domain.Enum;
 
 namespace TesteConfitec.Domain
 {

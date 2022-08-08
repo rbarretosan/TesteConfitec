@@ -11,15 +11,12 @@ namespace TesteConfitec.Application
 {
     public class HistoricoEscolarService : IHistoricoEscolarService
     {
-        private readonly IGeralPersist _geralPersist;
         private readonly IHistoricoEscolarPersist _historicoEscolarPersist;
         private readonly IMapper _mapper;
 
-        public HistoricoEscolarService(IGeralPersist geralPersist,
-                           IHistoricoEscolarPersist historicoEscolarPersist,
+        public HistoricoEscolarService(IHistoricoEscolarPersist historicoEscolarPersist,
                            IMapper mapper)
         {
-            _geralPersist = geralPersist;
             _historicoEscolarPersist = historicoEscolarPersist;
             _mapper = mapper;
         }
@@ -31,9 +28,9 @@ namespace TesteConfitec.Application
                 var historicoEscolar = _mapper.Map<HistoricoEscolar>(model);
                 historicoEscolar.UsuarioId = usuarioId;
 
-                _geralPersist.Add<HistoricoEscolar>(historicoEscolar);
+                _historicoEscolarPersist.Add<HistoricoEscolar>(historicoEscolar);
 
-                await _geralPersist.SaveChangesAsync();
+                await _historicoEscolarPersist.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -61,9 +58,9 @@ namespace TesteConfitec.Application
 
                         _mapper.Map(model, historicoEscolar);
 
-                        _geralPersist.Update<HistoricoEscolar>(historicoEscolar);
+                        _historicoEscolarPersist.Update<HistoricoEscolar>(historicoEscolar);
 
-                        await _geralPersist.SaveChangesAsync();
+                        await _historicoEscolarPersist.SaveChangesAsync();
                     }
                 }
 
@@ -84,8 +81,8 @@ namespace TesteConfitec.Application
                 var historicoEscolar = await _historicoEscolarPersist.GetHistoricoEscolarByIdsAsync(usuarioId, historicoEscolarId);
                 if (historicoEscolar == null) throw new Exception("HistoricoEscolar para delete não encontrado.");
 
-                _geralPersist.Delete<HistoricoEscolar>(historicoEscolar);
-                return await _geralPersist.SaveChangesAsync();
+                _historicoEscolarPersist.Delete<HistoricoEscolar>(historicoEscolar);
+                return await _historicoEscolarPersist.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -139,9 +136,9 @@ namespace TesteConfitec.Application
 
             _mapper.Map(model, historicoEscolar);
 
-            _geralPersist.Update<HistoricoEscolar>(historicoEscolar);
+            _historicoEscolarPersist.Update<HistoricoEscolar>(historicoEscolar);
 
-            if (await _geralPersist.SaveChangesAsync())
+            if (await _historicoEscolarPersist.SaveChangesAsync())
             {
                 var historicoEscolarRetorno = await _historicoEscolarPersist.GetHistoricoEscolarByIdsAsync(usuarioId, historicoEscolarId);
 

@@ -15,6 +15,7 @@ using System;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json.Serialization;
 
 namespace TesteConfitec.API
 {
@@ -34,8 +35,11 @@ namespace TesteConfitec.API
                 context => context.UseSqlServer(Configuration.GetConnectionString("Default"))
             );
             services.AddControllers()
-                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling =
-                        Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                    .AddJsonOptions(options =>
+                        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())
+                    )
+                    .AddNewtonsoftJson(options =>
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                     );
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

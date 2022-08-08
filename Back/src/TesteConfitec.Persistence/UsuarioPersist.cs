@@ -7,10 +7,10 @@ using TesteConfitec.Persistence.Contratos;
 
 namespace TesteConfitec.Persistence
 {
-    public class UsuarioPersist : IUsuarioPersist
+    public class UsuarioPersist : GeralPersist, IUsuarioPersist
     {
         private readonly TesteConfitecContext _context;
-        public UsuarioPersist(TesteConfitecContext context)
+        public UsuarioPersist(TesteConfitecContext context): base(context)
         {
             _context = context;
         }

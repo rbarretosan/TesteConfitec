@@ -10,14 +10,11 @@ namespace TesteConfitec.Application
 {
     public class UsuarioService : IUsuarioService
     {
-        private readonly IGeralPersist _geralPersist;
         private readonly IUsuarioPersist _usuarioPersist;
         private readonly IMapper _mapper;
-        public UsuarioService(IGeralPersist geralPersist,
-                             IUsuarioPersist usuarioPersist,
+        public UsuarioService(IUsuarioPersist usuarioPersist,
                              IMapper mapper)
         {
-            _geralPersist = geralPersist;
             _usuarioPersist = usuarioPersist;
             _mapper = mapper;
         }
@@ -27,9 +24,9 @@ namespace TesteConfitec.Application
         {
             var usuario = _mapper.Map<Usuario>(model);
 
-            _geralPersist.Add<Usuario>(usuario);
+            _usuarioPersist.Add<Usuario>(usuario);
 
-            if (await _geralPersist.SaveChangesAsync())
+            if (await _usuarioPersist.SaveChangesAsync())
             {
                 var usuarioRetorno = await _usuarioPersist.GetUsuarioByIdAsync(usuario.Id);
 
@@ -54,9 +51,9 @@ namespace TesteConfitec.Application
 
             _mapper.Map(model, usuario);
 
-            _geralPersist.Update<Usuario>(usuario);
+            _usuarioPersist.Update<Usuario>(usuario);
 
-            if (await _geralPersist.SaveChangesAsync())
+            if (await _usuarioPersist.SaveChangesAsync())
             {
                 var usuarioRetorno = await _usuarioPersist.GetUsuarioByIdAsync(usuario.Id);
 
@@ -77,8 +74,8 @@ namespace TesteConfitec.Application
             var usuario = await _usuarioPersist.GetUsuarioByIdAsync(usuarioId);
             if (usuario == null) throw new Exception("Usuario para delete não encontrado.");
 
-            _geralPersist.Delete<Usuario>(usuario);
-            return await _geralPersist.SaveChangesAsync();
+            _usuarioPersist.Delete<Usuario>(usuario);
+            return await _usuarioPersist.SaveChangesAsync();
         }
         catch (Exception ex)
         {

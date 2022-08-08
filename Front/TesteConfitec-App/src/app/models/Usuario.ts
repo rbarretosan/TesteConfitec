@@ -1,4 +1,4 @@
-import { Escolaridade } from "./Escolaridade";
+import { Escolaridade } from "./enum/Escolaridade";
 import { HistoricoEscolar } from "./HistoricoEscolar";
 
 export interface Usuario {

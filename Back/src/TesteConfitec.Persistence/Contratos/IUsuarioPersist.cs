@@ -3,7 +3,7 @@ using TesteConfitec.Domain;
 
 namespace TesteConfitec.Persistence.Contratos
 {
-    public interface IUsuarioPersist
+    public interface IUsuarioPersist: IGeralPersist
     {
         Task<Usuario[]> GetAllUsuariosByNomeAsync(string nome);
         Task<Usuario[]> GetAllUsuariosAsync();
