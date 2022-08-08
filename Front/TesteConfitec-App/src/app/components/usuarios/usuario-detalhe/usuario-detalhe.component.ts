@@ -218,6 +218,8 @@ export class UsuarioDetalheComponent implements OnInit {
     this.historicoEscolarService.deleteHistoricoEscolar(this.usuarioId, this.historicoEscolarAtual.id)
       .subscribe(
         () => {
+          this.historicosEscolares.clear();
+          this.carregarHistoricosEscolares();
           this.toastr.success('HistoricoEscolar deletado com sucesso', 'Sucesso');
         },
         (error: any) => {

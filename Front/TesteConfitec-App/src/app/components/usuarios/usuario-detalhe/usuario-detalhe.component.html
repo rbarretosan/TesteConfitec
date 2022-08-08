@@ -118,16 +118,6 @@
               </button>
             </legend>
             <div class="row">
-              <div class="form-group col-md-2">
-                <label>Formato</label>
-                <input
-                  [ngClass]="cssValidator(historicosEscolares.get(i+'.formato'))"
-                  type="text"
-                  class="form-control"
-                  formControlName="formato"
-                  placeholder="Formato"
-                  readonly>
-              </div>
               <div class="form-group col-md-10">
                 <label>Nome</label>
                 <input
@@ -139,6 +129,16 @@
               </div>
             </div>
             <div class="row" *ngIf="historicosEscolares.get(i+'.id').value!=0">
+              <div class="form-group col-md-2">
+                <label>Formato</label>
+                <input
+                  [ngClass]="cssValidator(historicosEscolares.get(i+'.formato'))"
+                  type="text"
+                  class="form-control"
+                  formControlName="formato"
+                  placeholder="Formato"
+                  readonly>
+              </div>
               <div class="form-group col-md-5">
                 <label>Arquivo</label>
                 <input
